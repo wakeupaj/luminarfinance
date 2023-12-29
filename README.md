@@ -1,2 +1,2 @@
 # Luminar Finance 
-Repository for the Luminar Finance Official Website  
+Repository for the Luminar Finance Official Website.
