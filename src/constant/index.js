@@ -84,7 +84,7 @@ export const footerLinks = [
     title: "More Info",
     links: [
       {
-        name: "Discord",
+        name: "Join our community",
         link: "https://discord.gg/6R5QVHEzaK",
       },
       {
@@ -101,7 +101,7 @@ export const footerLinks = [
       },
       {
         name: "Terms & Services",
-        link: "https://www.hoobank.com/terms-and-services/",
+        link: "https://www.luminarfinance/terms-and-services/",
       },
     ],
   },
