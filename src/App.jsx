@@ -4,7 +4,7 @@ import {CTA, Footer, GetStarted, Hero, Navbar, Stats, Testimonials,} from './com
 
 export const App = () => {
   return (
-    <div className="bg-primary w-full overflow-hidden">
+    <div className="bg-primary dark:bg-primary w-full overflow-hidden">
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Navbar />
