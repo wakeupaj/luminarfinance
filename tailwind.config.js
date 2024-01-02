@@ -8,18 +8,15 @@ module.exports = {
       colors: {
         'text': '#e0dcf4',
         'background': '#0f0b23',
-        'primary': '#a49cce',
+        'primary': '#393163',
         'secondary': '#5945bf',
         'accent': '#4a2ed6',
-      },
-      light: {
-        colors: {
-          'text': '#0f0b23',
-          'background': '#e0dcf4',
-          'primary': '#393163',
-          'secondary': '#5440ba',
-          'accent': '#4529d1',
-        },
+
+        'light-text': '#0f0b23',
+        'light-background': '#e0dcf4',
+        'light-primary': '#a49cce',
+        'light-secondary': '#5440ba',
+        'light-accent': '#4529d1',
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

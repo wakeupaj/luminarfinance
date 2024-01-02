@@ -1,10 +1,12 @@
-import {useState } from 'react'
+import { useState } from 'react'
 import React from 'react';
+import { useTheme } from '../context/ThemeContext.jsx';
 import { close, logo, menu } from '../assets';
 import { navLinks } from '../constants'
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
+  const { theme } = useTheme();
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
@@ -14,7 +16,7 @@ const Navbar = () => {
         {navLinks.map((nav, index) => (
           <li 
           key={nav.id}
-          className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} text-bg-text light:text-bg-text mr-10`}
+          className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} ${theme === 'light' ? 'text-light-text' : 'text-text'} mr-10`}
           >
             <a href={`#${nav.id}`}>
               {nav.title}
@@ -38,7 +40,7 @@ const Navbar = () => {
           {navLinks.map((nav, index) => (
             <li 
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-bg-text light:text-bg-text`}
+            className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-text`}
             >
               <a href={`#${nav.id}`}>
                 {nav.title}
