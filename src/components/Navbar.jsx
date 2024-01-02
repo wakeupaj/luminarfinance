@@ -1,13 +1,10 @@
 import {useState} from 'react'
-
 import { close, logo, menu } from '../assets';
 import { navLinks } from '../constant'
 
 const Navbar = () => {
   return (
-    <nav>
-      
-    </nav>
+   <p>hello test</p>
   )
 }
 
