@@ -21,12 +21,13 @@
 .text-gradient {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
-    #def9fa 0.89%,
-    #bef3f5 17.23%,
-    #9dedf0 42.04%,
-    #7de7eb 55.12%,
-    #5ce1e6 71.54%,
-    #33bbcf 100%
+     0.89%,
+    #dbd6f5 0.89%,
+    #b8adeb 17.23%,
+    #9485e0 42.04%,
+    #705cd6 55.12%,
+    #4c33cc 71.54%,
+    #3d29a3 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -34,15 +35,15 @@
   text-fill-color: transparent;
 }
 
-.bg-blue-gradient {
+.bg-purple-gradient {
   background: linear-gradient(
     157.81deg,
-    #def9fa -43.27%,
-    #bef3f5 -21.24%,
-    #9dedf0 12.19%,
-    #7de7eb 29.82%,
-    #5ce1e6 51.94%,
-    #33bbcf 90.29%
+    #dbd6f5 -43.27%,
+    #b8adeb -21.24%,
+    #9485e0 12.19%,
+    #705cd6 29.82%,
+    #4c33cc 51.94%,
+    #3d29a3 90.29%
   );
 }
 
@@ -124,13 +125,13 @@
   background: var(--black-gradient);
 }
 
-.blue__gradient {
-  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+.darkpurple__gradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #261966 100%);
   filter: blur(123px);
 }
 
-.pink__gradient {
-  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+.lightpurple__gradient {
+  background: linear-gradient(90deg, #b8adeb 0%, #4c33cc 100%);
   filter: blur(900px);
 }
 

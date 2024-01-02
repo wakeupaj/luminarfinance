@@ -1,8 +1,13 @@
-import React from 'react'
+import {useState} from 'react'
+
+import { close, logo, menu } from '../assets';
+import { navLinks } from '../constant'
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <nav>
+      
+    </nav>
   )
 }
 
