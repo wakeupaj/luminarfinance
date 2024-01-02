@@ -156,11 +156,6 @@ export const socialMedia = [
     link: "https://www.instagram.com/luminarfinance",
   },
   {
-    id: "social-media-2",
-    icon: tiktok,
-    link: "https://www.tiktok.com/luminarfinance",
-  },
-  {
     id: "social-media-3",
     icon: twitter,
     link: "https://www.twitter.com/LuminarFinance",
