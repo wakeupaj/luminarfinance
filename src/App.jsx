@@ -30,7 +30,7 @@ const AppContent = () => {
         </div>
       </div>
 
-      <div className={`${theme === 'light' ? 'bg-light-primary' : 'bg-primary'} ${theme === 'light' ? 'text-light-text' : 'text-text'} ${styles.flexStart}`}>
+      <div className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} ${theme === 'light' ? 'text-light-text' : 'text-text'} ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <Hero />
         </div>
