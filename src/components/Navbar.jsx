@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import React from 'react';
 import { useTheme } from '../context/ThemeContext.jsx';
-import { close, logo, menu } from '../assets';
+import { closeDark, closeLight, logo, menuDark, menuLight } from '../assets';
 import { navLinks } from '../constants'
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
         {navLinks.map((nav, index) => (
           <li 
           key={nav.id}
-          className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} ${theme === 'light' ? 'text-light-text' : 'text-text'} mr-10`}
+          className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} ${theme === 'light' ? 'text-light-text' : 'text-text'} mr-10`}
           >
             <a href={`#${nav.id}`}>
               {nav.title}
@@ -27,11 +27,14 @@ const Navbar = () => {
 
       <div className="sm:hidden flex flex-1 justify-end items-center">
         <img 
-        src={toggle ? close : menu }
-        alt="menu button"
-        className="w-[28px] h-[28px] object-contain"
-
-        onClick={() => setToggle((prev) => !prev)}
+          src={
+            toggle 
+              ? (theme === 'light' ? closeDark : closeLight)
+              : (theme === 'light' ? menuDark : menuLight)   
+          }        
+          alt="menu button"
+          className="w-[28px] h-[28px] object-contain"
+          onClick={() => setToggle((prev) => !prev)}
         />
         <div
         className={`${toggle ? 'flex' : 'hidden'} p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
@@ -40,7 +43,7 @@ const Navbar = () => {
           {navLinks.map((nav, index) => (
             <li 
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-text`}
+            className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-text`}
             >
               <a href={`#${nav.id}`}>
                 {nav.title}

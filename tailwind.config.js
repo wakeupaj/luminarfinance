@@ -11,7 +11,7 @@ module.exports = {
         'primary': '#393163',
         'secondary': '#5945bf',
         'accent': '#4a2ed6',
-
+      
         'light-text': '#0f0b23',
         'light-background': '#e0dcf4',
         'light-primary': '#a49cce',
@@ -20,6 +20,7 @@ module.exports = {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        mullish: ["Mulish", "sans-serif"],
       },
     },
     screens: {

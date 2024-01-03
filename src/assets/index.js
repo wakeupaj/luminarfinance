@@ -10,8 +10,10 @@ import robot from "./robot.png";
 import send from "./Send.svg";
 import shield from "./Shield.svg";
 import star from "./Star.svg";
-import menu from "./menu.svg";
-import close from "./close.svg";
+import menuDark from "./menuDark.svg";
+import menuLight from "./menuLight.svg";
+import closeDark from "./closeDark.svg";
+import closeLight from "./closeLight.svg";
 import google from "./google.svg";
 import apple from "./apple.svg";
 import arrowUp from "./arrow-up.svg";
@@ -37,8 +39,6 @@ export {
   send,
   shield,
   star,
-  menu,
-  close,
   google,
   apple,
   arrowUp,
@@ -50,4 +50,8 @@ export {
   people01,
   people02,
   people03,
+  menuDark,
+  menuLight,
+  closeDark,
+  closeLight,
 };
