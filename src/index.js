@@ -47,7 +47,7 @@ app.get('/api/auth/discord/redirect', async (req, res) => {
 
             console.log(output.data, userInfo.data);
             res.send("Login successful!");
-            
+                
         } else {
             res.status(500).send("Failed to retrieve user data");
         }
