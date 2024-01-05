@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
           <img src={discount} alt="discount" className="w-[32px] h-[32px]"/>
           <p className={`ml-2 ${styles.paragraph} text-text `}>
-                      <span className="text-text">Get 1 month </span>
+                      <span className="text-text">Get your next month </span>
           FOR FREE {" "}
           <span className="text-text">for each referral</span>
           </p>

@@ -8,10 +8,20 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false)
   const { theme } = useTheme();
 
+const ToggleThemeButton = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <button onClick={toggleTheme} className={`my-4 ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>
+      {theme === 'light' ? 'Dark' : 'Light'} Mode
+    </button>
+  );
+};
+
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
       <img src={logo} alt="Luminar Finance Logo" className="w-[124px] h-[32px]"/>
-
+      <ToggleThemeButton />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li 
