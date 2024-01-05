@@ -1,14 +1,13 @@
-import React, { useState, createContext, useContext  } from 'react';
-import styles from './style';
+import React from 'react';
 import { Home, Join, Contact, FAQ, Login,  } from './pages';
 import { Navbar } from './components/index.js';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  Navigate
 } from 'react-router-dom';
-import { ThemeProvider, useTheme } from './context/ThemeContext';
-
+import { ThemeProvider } from './context/ThemeContext';
 
 export const App = () => {
   return (
@@ -17,7 +16,8 @@ export const App = () => {
         <Router>
           <Navbar />
           <Routes>  
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Navigate replace to="/" />} />
             <Route path="/join" element={<Join />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
