@@ -1,14 +1,18 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 export const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({ children }) => {
-  const getSystemTheme = () => {
+  const [theme, setTheme] = useState('light');
 
-    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return isDarkMode ? 'dark' : 'light';
-  };
-  const [theme, setTheme] = useState(getSystemTheme);
+  useEffect(() => {
+    const getSystemTheme = () => {
+      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return isDarkMode ? 'dark' : 'light';
+    };
+    
+    setTheme(getSystemTheme);
+  }, []);
 
   const toggleTheme = () => {
     setTheme(current => (current === 'light' ? 'dark' : 'light'));

@@ -2,24 +2,31 @@ import { useState } from 'react'
 import React from 'react';
 import { useTheme } from '../context/ThemeContext.jsx';
 import { closeDark, closeLight, logo, menuDark, menuLight } from '../assets';
-import { navLinks } from '../constants'
+import { navLinks } from '../constants';
+import { Link } from 'react-router-dom';
+import styles from '../style.js';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
   const { theme } = useTheme();
 
-const ToggleThemeButton = () => {
-  const { theme, toggleTheme } = useTheme();
+  const ToggleThemeButton = () => {
+    const { theme, toggleTheme } = useTheme();
+
+    return (
+      <button onClick={toggleTheme} className={`my-4 ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>
+        {theme === 'light' ? 'Dark' : 'Light'} Mode
+      </button>
+    );
+  };
 
   return (
-    <button onClick={toggleTheme} className={`my-4 ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>
-      {theme === 'light' ? 'Dark' : 'Light'} Mode
-    </button>
-  );
-};
-
-  return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
+    <nav className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} w-full flex py-6 justify-between items-center navbar`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}`}>
+          
+        </div>
+    </div>
       <img src={logo} alt="Luminar Finance Logo" className="w-[124px] h-[32px]"/>
       <ToggleThemeButton />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
@@ -28,9 +35,9 @@ const ToggleThemeButton = () => {
           key={nav.id}
           className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} ${theme === 'light' ? 'text-light-text' : 'text-text'} mr-10`}
           >
-            <a href={`#${nav.id}`}>
+            <Link to={`/${nav.id}`}>
               {nav.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -55,9 +62,9 @@ const ToggleThemeButton = () => {
             key={nav.id}
             className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-text`}
             >
-              <a href={`#${nav.id}`}>
+              <Link to={`/${nav.id}`}>
                 {nav.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
