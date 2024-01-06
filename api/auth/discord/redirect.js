@@ -5,12 +5,13 @@ import { MongoClient } from 'mongodb';
 const client = new MongoClient(process.env.MONGODB_URI);
 
 export default async (req, res) => {
-    let userInfo;
     const { code } = req.query;
+    let userInfo;
 
     if (!code) {
         return res.status(400).send('No code provided');
     }
+
     try {
         const formData = new url.URLSearchParams({
             client_id: process.env.DISCORD_CLIENT_ID,
@@ -29,48 +30,36 @@ export default async (req, res) => {
 
         if (output.data) {
             const access = output.data.access_token;
-
             const userResponse = await axios.get('https://discord.com/api/users/@me', {
                 headers: {
                     'Authorization': `Bearer ${access}`,
                 },
             });
-            
-            userInfo = userResponse.data
-            console.log(userInfo);
 
-            
+            userInfo = userResponse.data;
+            await client.connect();
+            const db = client.db("LuminarDB");
+            const collection = db.collection("Accounts");
+
+            const discordUserData = {
+                username: userInfo.username,
+                email: userInfo.email,
+                avatar: userInfo.avatar,
+                user_id: userInfo.id,
+            };
+
+            await collection.insertOne(discordUserData);
+            res.writeHead(302, { Location: 'https://luminarfinance.net/dashboard' });
+            res.end();
         } else {
-            res.status(500).send("Failed to retrieve user data");
+            return res.status(500).send("Failed to retrieve user data");
         }
     } catch (error) {
         console.error('An error occurred:', error);
-        res.status(500).send('Internal Server Error');
-    }
-
-    try {
-        await client.connect();
-        
-        const db = client.db("LuminarDB");
-        const collection = db.collection("Accounts");
-
-        const discordUserData = {
-            username: userInfo.username,
-            email: userInfo.email,
-            avatar: userInfo.avatar,
-            user_id: userInfo.id,
-        };
-
-        await collection.insertOne(discordUserData);
-
-        res.status(200).send("User data stored successfully!");
-        res.writeHead(302, { Location: 'https://luminarfinance.net/dashboard' });
-        res.end();
-
-    } catch (error) {
-        console.error('An error occurred while saving to MongoDB:', error);
-        res.status(500).send('Internal Server Error');
+        return res.status(500).send('Internal Server Error');
     } finally {
+        if (client.isConnected()) {
             await client.close();
         }
+    }
 };
