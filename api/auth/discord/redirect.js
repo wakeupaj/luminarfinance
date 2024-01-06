@@ -51,8 +51,16 @@ export default async (req, res) => {
                 user_id: userInfo.id,
             };
 
-            await collection.insertOne(discordUserData);
+            const existingUser = await collection.findOne({ user_id: userInfo.id });
 
+            if (existingUser) {
+                console.log('User already exists');
+                res.writeHead(302, { Location: 'https://luminarfinance.net/dashboard' });
+                res.end();
+                return;
+            } else {
+                await collection.insertOne(discordUserData);
+            }
             res.writeHead(302, { Location: 'https://luminarfinance.net/dashboard' });
             res.end();
             
@@ -62,7 +70,7 @@ export default async (req, res) => {
         
     } catch (error) {
         console.error('An error occurred:', error);
-        return res.status(500).send('Internal Server Error');
+        return res.writeHead(500, { Location: 'https://luminarfinance.net/login' })
     }
 
     finally {
