@@ -1,4 +1,3 @@
-// import { useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext.jsx';
 import styles from '../style.js';
 

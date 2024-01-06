@@ -1,4 +1,3 @@
-
 import Home from "./Home";
 import Join from "./Join";
 import Contact from "./Contact";
