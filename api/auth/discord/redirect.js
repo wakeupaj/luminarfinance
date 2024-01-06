@@ -30,13 +30,14 @@ export default async (req, res) => {
         if (output.data) {
             const access = output.data.access_token;
 
-            const userInfo = await axios.get('https://discord.com/api/users/@me', {
+            const userResponse = await axios.get('https://discord.com/api/users/@me', {
                 headers: {
                     'Authorization': `Bearer ${access}`,
                 },
             });
-
-            console.log(userInfo.data);
+            
+            userInfo = userResponse.data
+            console.log(userInfo);
 
             
         } else {
