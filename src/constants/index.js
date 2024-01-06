@@ -20,6 +20,10 @@ export const navLinks = [
   {
     id: "login",
     title: "Login",
+  },
+  {
+    id: "dashboard",
+    title: "Dashboard",
   }
 ];
 

@@ -70,7 +70,7 @@ export default async (req, res) => {
         
     } catch (error) {
         console.error('An error occurred:', error);
-        return res.status(500).send('Internal Server Error');
+        return res.writeHead(500, { Location: 'https://luminarfinance.net/login' })
     }
 
     finally {
