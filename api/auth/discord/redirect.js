@@ -55,10 +55,10 @@ export default async (req, res) => {
         const collection = db.collection("Accounts");
 
         const discordUserData = {
-            username: userInfo.data.username,
-            email: userInfo.data.email,
-            avatar: userInfo.data.avatar,
-            user_id: userInfo.data.id,
+            username: userInfo.username,
+            email: userInfo.email,
+            avatar: userInfo.avatar,
+            user_id: userInfo.id,
         };
 
         await collection.insertOne(discordUserData);
