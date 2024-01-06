@@ -9,9 +9,11 @@ import styles from '../style.js';
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
   const { theme } = useTheme();
-
+  const [hoverIndex, setHoverIndex] = useState(-1);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  
   const ToggleThemeButton = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { toggleTheme } = useTheme();
 
     return (
       <button onClick={toggleTheme} className={`my-4 ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>
@@ -23,19 +25,20 @@ const Navbar = () => {
   return (
     <nav className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} w-full flex py-6 justify-between items-center navbar`}>
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-          
-        </div>
-    </div>
+      </div>
       <img src={logo} alt="Luminar Finance Logo" className="w-[124px] h-[32px]"/>
       <ToggleThemeButton />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li 
           key={nav.id}
-          className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} ${theme === 'light' ? 'text-light-text' : 'text-text'} mr-10`}
-          >
-            <Link to={`/${nav.id}`}>
+          className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} ${theme === 'light' ? 'text-light-text' : 'text-text'} mr-10`}>
+
+            <Link to={`/${nav.id}`}
+                  onMouseEnter={() => setHoverIndex(index)}
+                  onMouseLeave={() => setHoverIndex(-1)}
+                  className={ 
+                    `${hoverIndex === index ? (theme === 'light' ? 'text-light-secondary' : 'text-secondary') : ''}`}>  
               {nav.title}
             </Link>
           </li>
@@ -60,9 +63,12 @@ const Navbar = () => {
           {navLinks.map((nav, index) => (
             <li 
             key={nav.id}
-            className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-text`}
+            className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} ${theme === 'light' ? 'text-light-text' : 'text-text'}`}
             >
-              <Link to={`/${nav.id}`}>
+              <Link to={`/${nav.id}`}
+                  onClick={() => setActiveIndex(index)}
+                  className={ 
+                    `${activeIndex === index ? (theme === 'light' ? 'text-light-secondary' : 'text-secondary') : ''}`}>   
                 {nav.title}
               </Link>
             </li>
