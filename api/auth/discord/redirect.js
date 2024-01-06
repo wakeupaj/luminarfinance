@@ -1,5 +1,8 @@
 import axios from 'axios';
 import url from 'url';
+import { MongoClient } from 'mongodb';
+
+const client = new MongoClient(process.env.MONGODB_URI);
 
 export default async (req, res) => {
     const { code } = req.query;
@@ -33,7 +36,7 @@ export default async (req, res) => {
             });
 
             console.log(userInfo.data);
-            res.send("Login successful!");
+
             
         } else {
             res.status(500).send("Failed to retrieve user data");
@@ -42,4 +45,30 @@ export default async (req, res) => {
         console.error('An error occurred:', error);
         res.status(500).send('Internal Server Error');
     }
+
+    try {
+        await client.connect();
+        
+        const db = client.db("LuminarDB");
+        const collection = db.collection("Accounts");
+
+        const discordUserData = {
+            username: userInfo.data.username,
+            email: userInfo.data.email,
+            avatar: userInfo.data.avatar,
+            user_id: userInfo.data.id,
+        };
+
+        await collection.insertOne(discordUserData);
+
+        res.status(200).send("User data stored successfully!");
+        res.writeHead(302, { Location: 'https://luminarfinance.net/dashboard' });
+        res.end();
+
+    } catch (error) {
+        console.error('An error occurred while saving to MongoDB:', error);
+        res.status(500).send('Internal Server Error');
+    } finally {
+            await client.close();
+        }
 };

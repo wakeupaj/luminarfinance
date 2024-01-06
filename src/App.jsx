@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Join, Contact, FAQ, Login,  } from './pages';
+import { Home, Join, Contact, FAQ, Login, Dashboard,  } from './pages';
 import { Navbar } from './components/index.js';
 import {
   BrowserRouter as Router,
@@ -23,6 +23,7 @@ export const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </Router>
     </ThemeProvider>
