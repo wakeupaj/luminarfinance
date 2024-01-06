@@ -47,7 +47,6 @@ export default async (req, res) => {
     }
 
     try {
-        const client = new MongoClient(process.env.MONGODB_URI);
         await client.connect();
         
         const db = client.db("LuminarDB");
