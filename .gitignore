@@ -1,6 +1,7 @@
 node_modules
 CNAME
 luminarfinance.code-workspace
+.env
 dist/
 # vite.config.js
 # tailwind.config.js
