@@ -11,6 +11,7 @@ const Navbar = () => {
   const { theme } = useTheme();
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [activeIndex, setActiveIndex] = useState(-1);
+  const svgFillClass = `${theme === 'light' ? 'light-secondary' : 'light-primary'}`;
   
   const ToggleThemeButton = () => {
     const { toggleTheme } = useTheme();
@@ -26,7 +27,7 @@ const Navbar = () => {
     <nav className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} w-full flex py-6 justify-between items-center navbar`}>
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       </div>
-      <img src={logo} alt="Luminar Finance Logo" className="w-[124px] h-[32px]"/>
+      <img src={logo} className={`w-[10%] h-[10%`} currentColor={svgFillClass} alt="Luminar Finance Logo"/>
       <ToggleThemeButton />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
