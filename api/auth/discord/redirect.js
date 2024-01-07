@@ -1,6 +1,7 @@
 import axios from 'axios';
 import url from 'url';
 import { MongoClient } from 'mongodb';
+import jwt from 'jsonwebtoken';
 
 const client = new MongoClient(process.env.MONGODB_URI);
 
@@ -37,7 +38,6 @@ export default async (req, res) => {
             });
 
             userInfo = userResponse.data;
-            console.log(userInfo);
 
             await client.connect();
         
@@ -61,15 +61,24 @@ export default async (req, res) => {
             } else {
                 await collection.insertOne(discordUserData);
             }
+
+            const token = jwt.sign(
+                { user_id: userInfo.id },
+                process.env.JWT_SECRET,
+                { expiresIn: '72h' }
+            );
+            res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Path=/; Max-Age=259200; SameSite=Strict`);
+
             res.writeHead(302, { Location: 'https://luminarfinance.net/dashboard' });
             res.end();
             
         } else {
             return res.status(500).send("Failed to retrieve user data");
         }
-        
+            
     } catch (error) {
         console.error('An error occurred:', error);
+        res.end();
         return res.writeHead(500, { Location: 'https://luminarfinance.net/login' })
     }
 
