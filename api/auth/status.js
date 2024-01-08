@@ -1,7 +1,11 @@
 import jwt from 'jsonwebtoken';
 import cookie from 'cookie';
+import { useAuth } from '../context/AuthContext';
 
 export default async function(req, res) {
+
+    const { isAuthenticated } = useAuth();
+    
   try {
     const cookies = cookie.parse(req.headers.cookie || '');
     const token = cookies.token;
