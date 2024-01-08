@@ -40,7 +40,7 @@ const Login = () => {
             {user ? <div>{user.id}</div> : <span>Not logged in.</span>}
               <a
                 className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300"
-                href="http://localhost:4000/auth/discord/login"
+                href={discordOAuthUrl}
                 >
                 <DiscordIcon className="h-7 w-7 fill-white hover:fill-white/80 mr-4" />
                 <span className="tex-sm">Sign in with Discord</span>
