@@ -41,7 +41,7 @@ const Navbar = () => {
                   onMouseEnter={() => setHoverIndex(index)}
                   onMouseLeave={() => setHoverIndex(-1)}
                   className={ 
-                    `${hoverIndex === index ? (theme === 'light' ? 'text-light-accent' : 'text-secondary') : ''} transition-colors duration-200`}>  
+                    `${hoverIndex === index ? (theme === 'light' ? 'text-light-accent' : 'text-secondary') : ''} transition-colors duration-250`}>  
               {nav.title}
             </Link>
           </li>
