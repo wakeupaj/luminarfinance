@@ -8,7 +8,7 @@ import {
   Navigate
 } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import { AuthContext, AuthProvider } from './context/AuthContext.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
 
 export const App = () => {
   return (

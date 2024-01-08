@@ -15,7 +15,6 @@ const Navbar = () => {
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [activeIndex, setActiveIndex] = useState(-1);
   const { isAuthenticated } = useAuth();
-  console.log(isAuthenticated);
 
   const ToggleThemeButton = () => {
     const { toggleTheme } = useTheme();

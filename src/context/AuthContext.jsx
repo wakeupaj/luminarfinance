@@ -2,8 +2,6 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 
 export const AuthContext = createContext(null);
 
-export const useAuth = () => useContext(AuthContext);
-
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -30,4 +28,6 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+export const useAuth = () => useContext(AuthContext);
 
