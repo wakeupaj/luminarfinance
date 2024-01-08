@@ -16,10 +16,19 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(false);
   };
 
+  const checkAuthStatus = async () => {
+    try {
+      const response = await fetch('/api/auth/status'); // Adjust the URL based on your setup
+      const data = await response.json();
+      setIsAuthenticated(data.isAuthenticated);
+    } catch (error) {
+      console.error('Error checking authentication status:', error);
+    }
+  };
+
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    setIsAuthenticated(!!token);
+    checkAuthStatus();
   }, []);
 
   return (
