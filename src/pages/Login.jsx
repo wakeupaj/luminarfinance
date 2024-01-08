@@ -37,7 +37,6 @@ const Login = () => {
         <div className={`${styles.boxWidth}`}>
           <section id="home" className={`flex ${styles.paddingY}`}>
           <div>
-            {user ? <div>{user.id}</div> : <span>Not logged in.</span>}
               <a
                 className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300"
                 href={discordOAuthUrl}
