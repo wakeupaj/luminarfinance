@@ -8,30 +8,34 @@ import {
   Navigate
 } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import { AuthProvider } from './context/AuthContext.jsx';
+import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 
 export const App = () => {
+
+  const PrivateRoute = ({ component: Component, ...rest }) => {
+    const { isAuthenticated } = useAuth();
+    return isAuthenticated ? <Component /> : <Navigate to="/login" />;
+  };
+
   return (
-    <>
-      <AuthProvider>
-        <ThemeProvider>
-            <Router>
-              <Navbar />
-              <Routes>  
-                <Route path="/" element={<Home />} />
-                <Route path="*" element={<Home />} />
-                <Route path="/home" element={<Navigate replace to="/" />} />
-                <Route path="/join" element={<Join />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-              </Routes>
-            </Router>
-        </ThemeProvider>
-      </AuthProvider>
-    </>
+    <AuthProvider>
+      <ThemeProvider>
+        <Router>
+          <Navbar />
+          <Routes>  
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
+            <Route path="/home" element={<Navigate replace to="/" />} />
+            <Route path="/join" element={<Join />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </AuthProvider>
   );
 };
 
-export default App
+export default App;
