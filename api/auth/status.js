@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
-const express = require('express');
-const router = express.Router();
+import jwt from 'jsonwebtoken';
+import express from 'express';
 
+const router = express.Router();
 
 router.get('/auth/status', (req, res) => {
   try {
@@ -20,4 +20,4 @@ router.get('/auth/status', (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
