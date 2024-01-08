@@ -41,7 +41,7 @@ const Navbar = () => {
                   onMouseEnter={() => setHoverIndex(index)}
                   onMouseLeave={() => setHoverIndex(-1)}
                   className={ 
-                    `${hoverIndex === index ? (theme === 'light' ? 'text-light-secondary' : 'text-secondary') : ''}`}>  
+                    `${hoverIndex === index ? (theme === 'light' ? 'text-light-accent' : 'text-secondary') : ''} transition-colors duration-200`}>  
               {nav.title}
             </Link>
           </li>
@@ -66,7 +66,7 @@ const Navbar = () => {
           {navLinks.map((nav, index) => (
             <li 
             key={nav.id}
-            className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} ${theme === 'light' ? 'text-light-text' : 'text-text'}`}
+            className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-text`}
             >
               <Link to={`/${nav.id}`}
                   onClick={() => setActiveIndex(index)}
