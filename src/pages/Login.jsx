@@ -25,7 +25,7 @@ const Login = () => {
             <div className={`flex-1 ${styles.flexStart}`}>
               <a
                 href={discordOAuthUrl}
-                className="button-class"
+                className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300"
               >
                 Login with Discord
               </a>

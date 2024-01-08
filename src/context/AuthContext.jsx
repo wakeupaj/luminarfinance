@@ -26,7 +26,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-
   useEffect(() => {
     checkAuthStatus();
   }, []);
