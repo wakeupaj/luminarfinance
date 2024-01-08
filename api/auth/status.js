@@ -1,23 +1,23 @@
 import jwt from 'jsonwebtoken';
-import express from 'express';
+import cookie from 'cookie';
 
-const router = express.Router();
-
-router.get('/auth/status', (req, res) => {
+export default async function(req, res) {
   try {
-    const token = req.cookies.token;
+    const cookies = cookie.parse(req.headers.cookie || '');
+    const token = cookies.token;
+
     if (!token) {
       return res.status(200).json({ isAuthenticated: false });
     }
-    jwt.verify(token, process.env.JWT_SECRET, (err) => {
-      if (err) {
-        return res.status(200).json({ isAuthenticated: false });
-      }
+
+    try {
       return res.status(200).json({ isAuthenticated: true });
-    });
+    } catch (err) {
+
+      return res.status(200).json({ isAuthenticated: false });
+    }
   } catch (error) {
+    console.error('Error in /auth/status:', error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
-});
-
-export default router;
+}

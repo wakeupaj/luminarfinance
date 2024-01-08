@@ -6,7 +6,7 @@ import darkLogo from '../assets/lightArrow_LogoBrand.svg';
 import lightLogo from '../assets/darkArrow_LogoBrand.svg';
 import { navLinks } from '../constants';
 import { Link } from 'react-router-dom';
-import { AuthContext, useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import styles from '../style.js';
 
 const Navbar = () => {
