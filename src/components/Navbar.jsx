@@ -48,7 +48,7 @@ const Navbar = () => {
         ))}
       </ul>
 
-      <div className="sm:hidden flex flex-1 justify-end items-center">
+      <div className="sm:hidden flex flex-1 justify-end items-center pr-4">
         <img 
           src={
             toggle 
@@ -56,7 +56,7 @@ const Navbar = () => {
               : (theme === 'light' ? menuDark : menuLight)   
           }        
           alt="menu button"
-          className="w-[28px] h-[28px] object-contain"
+          className="w-[28px] h-[28px] object-contain mr-2"
           onClick={() => setToggle((prev) => !prev)}
         />
         <div
