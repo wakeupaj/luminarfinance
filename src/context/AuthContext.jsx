@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(true);
   };
 
-  const logout = () => {
+  const logout = () => {  
     localStorage.removeItem('authToken');
     setIsAuthenticated(false);
   };
@@ -33,3 +33,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+

@@ -6,6 +6,7 @@ import darkLogo from '../assets/lightArrow_LogoBrand.svg';
 import lightLogo from '../assets/darkArrow_LogoBrand.svg';
 import { navLinks } from '../constants';
 import { Link } from 'react-router-dom';
+import { AuthContext, useAuth } from '../context/AuthContext';
 import styles from '../style.js';
 
 const Navbar = () => {
@@ -13,6 +14,7 @@ const Navbar = () => {
   const { theme } = useTheme();
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [activeIndex, setActiveIndex] = useState(-1);
+  const { isAuthenticated } = useAuth(AuthContext);
 
   const ToggleThemeButton = () => {
     const { toggleTheme } = useTheme();
@@ -24,6 +26,14 @@ const Navbar = () => {
     );
   };
 
+  const filteredNavLinks = navLinks.filter(link => {
+    if (isAuthenticated) {
+      return link.id !== 'login';
+    } else {
+      return link.id !== 'dashboard';
+    }
+  });
+
   return (
     <nav className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} w-full flex py-6 justify-between items-center navbar`}>
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
@@ -32,7 +42,7 @@ const Navbar = () => {
 
       <ToggleThemeButton />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {navLinks.map((nav, index) => (
+        {filteredNavLinks.map((nav, index) => (
           <li 
           key={nav.id}
           className={`font-mullish font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} ${theme === 'light' ? 'text-light-text' : 'text-text'} mr-10`}>
