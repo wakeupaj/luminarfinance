@@ -6,8 +6,8 @@ export default async function status(req, res) {
     const cookies = cookie.parse(req.headers.cookie || '');
     const token = cookies.token;
 
-    if (!token) {
-      console.log('No token found', error);
+    if (!token || token == null) {
+      console.log('No token found', err);
       return res.status(200).json({ isAuthenticated: false });
     }
 
