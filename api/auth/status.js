@@ -3,8 +3,8 @@ import cookie from 'cookie';
 
 /**
  * Extract the token from cookies.
- * @param {string} cookieHeader - The cookie header from the request.
- * @returns {string | null} - The token or null if not found.
+ @param {string} cookieHeader - The cookie header from the request.
+ @returns {string | null} - The token or null if not found.
  */
 const extractTokenFromCookie = (cookieHeader) => {
   const cookies = cookie.parse(cookieHeader || '');
@@ -13,8 +13,8 @@ const extractTokenFromCookie = (cookieHeader) => {
 
 /**
  * Verify the JWT token.
- * @param {string} token - The JWT token to verify.
- * @returns {boolean} - True if the token is valid; otherwise, false.
+ @param {string} token - The JWT token to verify.
+ @returns {boolean} - True if the token is valid; otherwise, false.
  */
 const verifyJwtToken = (token) => {
   try {
@@ -28,8 +28,8 @@ const verifyJwtToken = (token) => {
 
 /**
  * Handle the authentication status request.
- * @param {Object} req - The request object.
- * @param {Object} res - The response object.
+ @param {Object} req - The request object.
+ @param {Object} res - The response object.
  */
 
 export default async function status(req, res) {
