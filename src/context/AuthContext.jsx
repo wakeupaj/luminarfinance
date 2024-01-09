@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await fetch('api/auth/status.js');
+      const response = await fetch('api/auth/status');
       const data = await response.json();
       setIsAuthenticated(data.isAuthenticated);
     } catch (error) {
