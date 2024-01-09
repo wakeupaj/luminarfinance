@@ -20,6 +20,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await fetch('api/auth/status');
       const data = await response.json();
+      console.log('Auth status checked:', data.isAuthenticated);
       setIsAuthenticated(data.isAuthenticated);
     } catch (error) {
       console.error('Error checking authentication status:', error);
@@ -38,4 +39,3 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
-
