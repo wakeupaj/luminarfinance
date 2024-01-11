@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { parseJwt } from '../utils/parseJwt'
 
 const Dashboard = () => {
@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <div>
       {username && <h1>Hello, {username}</h1>}
-    
+
 
     </div>
   )
