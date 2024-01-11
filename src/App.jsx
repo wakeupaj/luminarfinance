@@ -22,21 +22,21 @@ export const App = () => {
   return (
     <AuthProvider>
       <ThemeProvider>
-        <Router>
-          <Navbar />
-          <Routes>  
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<Home />} />
-            <Route path="/home" element={<Navigate replace to="/" />} />
-            <Route path="/join" element={<Join />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/login" element={<Login />} />
-            <UserProvider>
+        <UserProvider>
+          <Router>
+            <Navbar />
+            <Routes>  
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<Home />} />
+              <Route path="/home" element={<Navigate replace to="/" />} />
+              <Route path="/join" element={<Join />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />
-            </UserProvider>
-          </Routes>
-        </Router>
+            </Routes>
+          </Router>
+        </UserProvider>
       </ThemeProvider>
     </AuthProvider>
   );
