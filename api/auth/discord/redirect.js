@@ -66,7 +66,11 @@ export default async (req, res) => {
                 console.log('User already exists in the database');
 
                 const token = jwt.sign(
-                    { user_id: userInfo.id },
+                    { 
+                        user_id: userInfo.id,
+                        username: userInfo.username,
+                        avatar: userInfo.avatar
+                    },
                     process.env.JWT_SECRET,
                     { expiresIn: '72h' }
                 );
@@ -82,7 +86,11 @@ export default async (req, res) => {
 
             console.log('Signing JWT token');
             const token = jwt.sign(
-                { user_id: userInfo.id },
+                { 
+                    user_id: userInfo.id,
+                    username: userInfo.username,
+                    avatar: userInfo.avatar
+                },
                 process.env.JWT_SECRET,
                 { expiresIn: '72h' }
             );
