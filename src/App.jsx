@@ -9,10 +9,8 @@ import {
 } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
-import userInfoRouter from './api/userinfo';
 import { UserProvider } from './context/UserContext';
 
-App.use('/api', userInfoRouter);
 
 export const App = () => {
 
