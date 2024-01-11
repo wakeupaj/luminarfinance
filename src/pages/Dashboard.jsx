@@ -5,7 +5,7 @@ const Dashboard = () => {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('authToken');
       if (token) {
           const decodedToken = parseJwt(token);
           setUsername(decodedToken.username);
