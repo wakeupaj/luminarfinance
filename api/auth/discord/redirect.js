@@ -64,6 +64,14 @@ export default async (req, res) => {
 
             if (existingUser) {
                 console.log('User already exists in the database');
+
+                const token = jwt.sign(
+                    { user_id: userInfo.id },
+                    process.env.JWT_SECRET,
+                    { expiresIn: '72h' }
+                );
+                res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Path=/; Max-Age=259200; SameSite=Strict`);
+                
                 res.writeHead(302, { Location: 'https://luminarfinance.net/dashboard' });
                 res.end();
                 return;
