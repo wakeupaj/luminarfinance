@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { parseJwt } from '../utils/parseJwt'
+import React from 'react'
+import { useUserInfo } from '../context/UserContext';
 
 const Dashboard = () => {
-  const [username, setUsername] = useState('');
-  
-
-  useEffect(() => {
-      const token = localStorage.getItem('authToken');
-      console.log('Token from localStorage:', token);
-      if (token) {
-          const decodedToken = parseJwt(token);
-          console.log('Decoded token:', decodedToken);
-          if (decodedToken) {
-              setUsername(decodedToken.username);
-          }
-        
-      }
-  }, []);
+  const userInfo = useUserInfo();
+  const username = userInfo?.username;
+  const email = userInfo?.email;
+  const avatar = userInfo?.avatar;
 
   return (
     <div>

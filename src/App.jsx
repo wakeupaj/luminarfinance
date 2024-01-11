@@ -9,6 +9,10 @@ import {
 } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
+import userInfoRouter from './api/userinfo';
+import { UserProvider } from './context/UserContext';
+
+App.use('/api', userInfoRouter);
 
 export const App = () => {
 
@@ -30,7 +34,9 @@ export const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />
+            <UserProvider>
+              <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />
+            </UserProvider>
           </Routes>
         </Router>
       </ThemeProvider>

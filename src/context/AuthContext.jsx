@@ -5,18 +5,17 @@ export const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const login = (token) => {
-    localStorage.setItem('authToken', token);
+  const login = () => {
     setIsAuthenticated(true);
   };
 
   const logout = () => {  
-    localStorage.removeItem('authToken');
     setIsAuthenticated(false);
   };
 
   const checkAuthStatus = async () => {
     try {
+      console.log('Checking auth status with the backend');
       const response = await fetch('api/auth/status');
       const data = await response.json();
       console.log('Auth status checked:', data.isAuthenticated);
