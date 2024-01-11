@@ -3,12 +3,18 @@ import { parseJwt } from '../utils/parseJwt'
 
 const Dashboard = () => {
   const [username, setUsername] = useState('');
+  
 
   useEffect(() => {
       const token = localStorage.getItem('authToken');
+      console.log('Token from localStorage:', token);
       if (token) {
           const decodedToken = parseJwt(token);
-          setUsername(decodedToken.username);
+          console.log('Decoded token:', decodedToken);
+          if (decodedToken) {
+              setUsername(decodedToken.username);
+          }
+        
       }
   }, []);
 
