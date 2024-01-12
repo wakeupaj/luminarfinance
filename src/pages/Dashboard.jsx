@@ -2,11 +2,21 @@ import React from 'react'
 import { useUserInfo } from '../context/UserContext';
 
 const Dashboard = () => {
-  const userInfo = useUserInfo();
-  const username = userInfo.username;
-  const email = userInfo.email;
-  const avatar = userInfo.avatar;
-  const id = userInfo.id;
+  const { userInfo, loading, error } = useUserInfo();
+
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>; 
+  }
+
+  if (!userInfo) {
+    return <div>No user info available.</div>; 
+  }
+
+  const { username, email, avatar, id } = userInfo;
 
   return (
     <div>

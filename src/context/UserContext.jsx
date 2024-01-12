@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
         const response = await fetch('/api/userinfo');
         if (response.ok) {
           const data = await response.json();
-          
+          console.log(data);
           setState({ userInfo: data, loading: false, error: null });
         } else {
           throw new Error(`Failed to fetch user info: status ${response.status}`);
