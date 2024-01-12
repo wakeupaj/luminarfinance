@@ -22,7 +22,7 @@ const Dashboard = () => {
   const { username, email, avatar, id } = userInfo;
 
   return (
-    <div>
+    <div className={`w-full overflow-hidden ${theme === 'light' ? 'bg-light-background' : 'bg-background'} `}>
       <div className={`${
         theme === 'light' ? 'bg-light-background' : 'bg-background'
       } ${styles.boxWidth}`}>
@@ -34,7 +34,7 @@ const Dashboard = () => {
               <h1 className={`font-inter font-normal text-[44px] ${
                 theme === 'light' ? 'text-light-text' : 'text-text'
               }`}>
-                Hello, {username}
+                Hello, {username}.
               </h1>
               <img 
                 src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} 
