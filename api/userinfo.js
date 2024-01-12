@@ -28,7 +28,7 @@ export default async function userinfo(req, res) {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const db = await connectToDatabase();
         const collection = db.collection("Accounts");
-        const user = await collection.findOne({user_id: decoded.id});
+        const user = await collection.findOne({user_id: decoded.user_id});
 
         if (!user) {
             return res.status(404).send({message: 'User not found'});
