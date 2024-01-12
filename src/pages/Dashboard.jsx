@@ -1,6 +1,7 @@
 import React from 'react'
 import { useUserInfo } from '../context/UserContext';
 import {useTheme } from '../context/ThemeContext.jsx';
+import styles from '../style.js';
 
 const Dashboard = () => {
   const { userInfo, loading, error } = useUserInfo();

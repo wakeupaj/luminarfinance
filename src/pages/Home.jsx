@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTheme } from '../context/ThemeContext.jsx';
+import { useTheme } from '../context/ThemeContext.jsx';
 import {CTA, Footer, GetStarted, Stats, Testimonials,} from '../components/index.js';
 import styles from '../style.js';
 import { discount, robot } from '../assets';
