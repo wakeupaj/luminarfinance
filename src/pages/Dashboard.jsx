@@ -1,8 +1,10 @@
 import React from 'react'
 import { useUserInfo } from '../context/UserContext';
+import {useTheme } from '../context/ThemeContext.jsx';
 
 const Dashboard = () => {
   const { userInfo, loading, error } = useUserInfo();
+  const { theme } = useTheme();
 
   if (loading) {
     return <div>Loading...</div>; 
@@ -25,8 +27,7 @@ const Dashboard = () => {
       <div className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} ${theme === 'light' ? 'text-light-text' : 'text-text'} ${styles.flexStart}`}>
           <div className={`${styles.boxWidth}`}>
             <section id="dashboard" className={`flex md:flex-row flex-col ${styles.paddingY} ${theme === 'light' ? 'bg-light-background' : 'bg-background'}`}>
-              <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
-
+              <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}> 
                   <h1>Hello, {username}</h1>
                   <p>Your email is: {email}</p>
                   <p>
