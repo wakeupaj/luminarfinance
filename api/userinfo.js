@@ -37,7 +37,8 @@ export default async function userinfo(req, res) {
         res.json({ 
             username: user.username, 
             email: user.email, 
-            avatar: user.avatar 
+            avatar: user.avatar,
+            id: user.user_id
         });
 
     } catch (error) {
