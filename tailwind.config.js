@@ -21,6 +21,7 @@
         fontFamily: {
           poppins: ["Poppins", "sans-serif"],
           mullish: ["Mulish", "sans-serif"],
+          inter: ["Inter", "sans-serif"],
         },
       },
       screens: {
