@@ -30,7 +30,8 @@ router.get('/userinfo', async (req, res) => {
         res.json({ 
             username: user.username, 
             email: user.email, 
-            avatar: user.avatar });
+            avatar: user.avatar 
+        });
 
     } catch (error) {
         if (error instanceof jwt.JsonWebTokenError) {
