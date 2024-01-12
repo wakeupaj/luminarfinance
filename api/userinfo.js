@@ -1,14 +1,15 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import { MongoClient } from 'mongodb';
-import { send } from 'vite';
 
 const client = new MongoClient(process.env.MONGODB_URI);
-await client.connect();
-const db = client.db("LuminarDB");
-const collection = db.collection("Accounts");
-
 const router = express.Router();
+
+let db, collection;
+client.connect().then(() => {
+  db = client.db("LuminarDB");
+  collection = db.collection("Accounts");
+}).catch(err => console.error('Failed to connect to MongoDB', err));
 
 router.get('/userinfo', async (req, res) => {
     try {

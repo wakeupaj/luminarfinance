@@ -1,23 +1,28 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
-export const UserContext = createContext(null);
+export const UserContext = createContext({ userInfo: null, loading: false, error: null });
 
 export const UserProvider = ({ children }) => {
-  const [userInfo, setUserInfo] = useState(null);
+  const [state, setState] = useState({
+    userInfo: null,
+    loading: false,
+    error: null
+  });
 
   useEffect(() => {
+    setState(prevState => ({ ...prevState, loading: true }));
     const fetchUserInfo = async () => {
       try {
         const response = await fetch('/api/userinfo');
         if (response.ok) {
           const data = await response.json();
-          setUserInfo(data);
+          setState({ userInfo: data, loading: false, error: null });
         } else {
-          setUserInfo(null);
+          throw new Error(`Failed to fetch user info: status ${response.status}`);
         }
       } catch (error) {
         console.error('Failed to fetch user info:', error);
-        setUserInfo(null);
+        setState({ userInfo: null, loading: false, error });
       }
     };
 
@@ -25,7 +30,7 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={userInfo}>
+    <UserContext.Provider value={state}>
       {children}
     </UserContext.Provider>
   );
