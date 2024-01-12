@@ -33,8 +33,6 @@ const Dashboard = () => {
     <h1 className={`font-inter font-normal text-[44px] ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>Hello, {username}</h1>
     <img src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} className={`w-[50px] h-[50px] rounded-full`} alt="avatar"/>
     <p className={`font-inter font-normal text-[21px]`}>{email}</p>
-    <p>
-    </p>
     </div>
     </section>
     </div>
