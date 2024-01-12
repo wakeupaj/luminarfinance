@@ -29,10 +29,10 @@ const Dashboard = () => {
           <div className={`${styles.boxWidth}`}>
             <section id="dashboard" className={`flex md:flex-row flex-col ${styles.paddingY} ${theme === 'light' ? 'bg-light-background' : 'bg-background'}`}>
               <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}> 
-                  <h1 className= {`font-inter font-normal text-[44px] ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>Hello, {username}</h1>
-                  <p>Your email is: {email}</p>
+                  <h1 className={`font-inter font-normal text-[44px] ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>Hello, {username} <img src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} className={`w-[50px] h-[50px] rounded-full`} alt="avatar"/> </h1>
+                  <p className={`font-inter font-normal text-[21px]`}>{email}</p>
                   <p>
-                    Your avatar is: <img src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} className='avatar'/>
+                    
                   </p> 
                 </div>
             </section>
