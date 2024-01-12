@@ -22,21 +22,24 @@ const Dashboard = () => {
   const { username, email, avatar, id } = userInfo;
 
   return (
-    <div className={`w-full overflow-hidden ${theme === 'light' ? 'bg-light-background' : 'bg-background'} `}>
-    <div className={`${
-    theme === 'light' ? 'bg-light-background' : 'bg-background'
-    } ${styles.boxWidth}`}>
-    <section id="dashboard" className={`flex md:flex-row flex-col ${styles.paddingY} ${
-    theme === 'light' ? 'bg-light-background' : 'bg-background'
-    }`}>
-    <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}> 
-    <h1 className={`font-inter font-normal text-[44px] ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>Hello, {username}</h1>
-    <img src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} className={`w-[50px] h-[50px] rounded-full`} alt="avatar"/>
-    <p className={`font-inter font-normal text-[21px]`}>{email}</p>
+    <div>
+      
+
+      <div className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} ${theme === 'light' ? 'text-light-text' : 'text-text'} ${styles.flexStart}`}>
+          <div className={`${styles.boxWidth}`}>
+            <section id="dashboard" className={`flex md:flex-row flex-col ${styles.paddingY} ${theme === 'light' ? 'bg-light-background' : 'bg-background'}`}>
+              <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
+                <div className="flex items-center">
+                    <h1 className={`font-inter font-normal text-[44px] ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>Hello, {username}</h1>
+                    <img src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} className={`w-[50px] h-[50px] rounded-full`} alt="avatar" />
+                </div>
+                  <p className={`font-inter font-normal text-[16px]`}>{email}</p>
+               </div>
+            </section>
+          </div>
+        </div>
     </div>
-    </section>
-    </div>
-    </div>
-    )};
+  )
+}
 
 export default Dashboard
