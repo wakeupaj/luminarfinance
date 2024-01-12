@@ -13,7 +13,7 @@ const Dashboard = () => {
       <h1>Hello, {username}</h1>
       <p>Your email is: {email}</p>
       <p>
-        Your avatar is: <img src={`http://cdn.discordapp.com/avatars/${id}/${avatar}.png`} className='avatar'/>
+        Your avatar is: <img src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} className='avatar'/>
       </p>
 
     </div>
