@@ -30,7 +30,6 @@ const Dashboard = () => {
           theme === 'light' ? 'bg-light-background' : 'bg-background'
         }`}>
           <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
-            <div className="flex items-center justify-start">
               <h1 className={`font-inter font-normal text-[44px] ${
                 theme === 'light' ? 'text-light-text' : 'text-text'
               }`}>
@@ -41,7 +40,6 @@ const Dashboard = () => {
                 className="w-[50px] h-[50px] rounded-full ml-4" 
                 alt="avatar"
               />
-            </div>
             <p className={`font-inter font-normal text-[21px] ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>
               {email}
             </p>
