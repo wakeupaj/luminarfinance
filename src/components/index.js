@@ -4,6 +4,7 @@ import GetStarted from "./GetStarted";
 import Navbar from "./Navbar";
 import Stats from "./Stats";
 import Testimonials from "./Testimonials";
+import Loading from "./Loading";
 
 export {
     CTA,
@@ -12,4 +13,5 @@ export {
     Navbar,
     Stats,
     Testimonials,
+    Loading,
 }
