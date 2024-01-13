@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Join, Contact, FAQ, Login, Dashboard,  } from './pages';
+import { Home, Join, Contact, FAQ, Login, Dashboard } from './pages';
 import { Navbar } from './components/index.js';
 import {
   BrowserRouter as Router,
@@ -10,7 +10,6 @@ import {
 import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 import { UserProvider } from './context/UserContext';
-
 
 export const App = () => {
 
