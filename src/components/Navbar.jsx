@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} w-full flex py-6 justify-between items-center navbar`}>
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       </div>
-      <img src={theme === 'light' ? darkLogo : lightLogo} className="w-[7%] h-[7%]" alt="Luminar Finance Logo"/>
+      <img src={theme === 'light' ? darkLogo : lightLogo} className="w-[10%] h-[10%] sm:flex hidden"  alt="Luminar Finance Logo"/>
 
       <ToggleThemeButton />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
@@ -61,6 +61,7 @@ const Navbar = () => {
       
 
       <div className="sm:hidden flex flex-1 justify-end items-center pr-4">
+      <img src={theme === 'light' ? darkLogo : lightLogo} className="w-[10%] h-[10%] sm:flex hidden"  alt="Luminar Finance Logo"/>
         <img 
           src={
             toggle 
