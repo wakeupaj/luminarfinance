@@ -35,14 +35,14 @@ const Dashboard = () => {
             <section id="dashboard" className={`flex md:flex-row flex-col ${styles.paddingY} ${theme === 'light' ? 'bg-light-background' : 'bg-background'}`}>
               <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
                 <div className="flex items-center">
-                    <h1 className={`font-inter font-normal text-[44px] ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>Hello, {username}</h1>
-                    <img src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} className={`w-[75px] h-[75px] rounded-full border-${theme === 'light' ? 'text-light-text' : ''} border-2 ml-4`} alt="avatar" />
+                      <h1 className={`font-inter font-normal text-[44px] ${theme === 'light' ? 'text-light-text' : 'text-text'}`}>Hello, {username}</h1>
+                      <img src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} className={`w-[75px] h-[75px] rounded-full border-${theme === 'light' ? 'text-light-text' : ''} border-2 ml-4`} alt="avatar" />
                 </div>
-                  <p className={`font-inter font-normal text-[16px]`}><i>{email}</i></p>
-               </div>
-            </section>
-          </div>
+                <p className={`font-inter font-normal text-[16px]`}><i>{email}</i></p>
+              </div>
+          </section>
         </div>
+      </div>
     </div>
   )
 }
