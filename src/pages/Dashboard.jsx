@@ -39,10 +39,10 @@ const Dashboard = () => {
                 </div>
                 <p className={`font-inter font-normal text-[16px]`}><i>{email}</i></p>
               </div>
-              <DashNav />
           </section>
         </div>
       </div>
+      <DashNav />
     </div>
   )
 }
