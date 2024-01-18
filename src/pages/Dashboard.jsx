@@ -29,8 +29,6 @@ const Dashboard = () => {
 
   return (
     <div>
-      <DashNav />
-
       <div className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} ${theme === 'light' ? 'text-light-text' : 'text-text'} ${styles.flexStart}`}>
           <div className={`${styles.boxWidth}`}>
             <section id="dashboard" className={`flex md:flex-row flex-col ${styles.paddingY} ${theme === 'light' ? 'bg-light-background' : 'bg-background'}`}>
@@ -41,6 +39,7 @@ const Dashboard = () => {
                 </div>
                 <p className={`font-inter font-normal text-[16px]`}><i>{email}</i></p>
               </div>
+              <DashNav />
           </section>
         </div>
       </div>
