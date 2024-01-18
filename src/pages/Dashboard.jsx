@@ -3,6 +3,7 @@ import { useUserInfo } from '../context/UserContext';
 import {useTheme } from '../context/ThemeContext.jsx';
 import styles from '../style.js';
 import { Loading } from '../components/index.js';
+import DashNav from '../components/DashNav.jsx';
 
 const Dashboard = () => {
   const { userInfo, loading, error } = useUserInfo();
@@ -28,7 +29,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      
+      <DashNav />
 
       <div className={`${theme === 'light' ? 'bg-light-background' : 'bg-background'} ${theme === 'light' ? 'text-light-text' : 'text-text'} ${styles.flexStart}`}>
           <div className={`${styles.boxWidth}`}>
