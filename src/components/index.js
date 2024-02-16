@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Stats from "./Stats";
 import Testimonials from "./Testimonials";
 import Loading from "./Loading";
+import DashNav from "./DashNav";
 
 export {
     CTA,
@@ -14,4 +15,5 @@ export {
     Stats,
     Testimonials,
     Loading,
+    DashNav,
 }

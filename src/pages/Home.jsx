@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext.jsx';
-import {CTA, Footer, GetStarted, Stats, Testimonials,} from '../components/index.js';
+import {CTA, Footer, GetStarted, Stats, Testimonials, DashNav} from '../components/index.js';
 import styles from '../style.js';
 import { discount, robot } from '../assets';
 
@@ -25,6 +25,11 @@ export const Home = () => {
             </section>
           </div>
         </div>
+
+        <div>
+          <DashNav />
+          </div>
+
   
         <div className={`${theme === 'light' ? 'bg-light-primary' : 'bg-primary'} ${theme === 'light' ? 'text-light-text' : 'text-text'}  ${styles.paddingX} ${styles.flexStart}`}>
           <div className={`${styles.boxWidth}`}>
@@ -36,6 +41,8 @@ export const Home = () => {
           </div>
         </div>
       </div>
+      
+      
     )
   }
   
