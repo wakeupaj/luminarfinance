@@ -45,11 +45,26 @@ export const Home = () => {
         </div>
 
         <div className={`${theme === 'light' ? 'bg-background' : 'bg-light-background'} ${theme === 'light' ? 'text-text' : 'text-light-text'} w-full`}>
-          <div className={`w-full`}>
-            <section id="testimonials" className={`flex flex-col items-center justify-center ${styles.paddingY} ${theme === 'light' ? 'bg-background' : 'bg-light-background' }`}>
+          <div>
+            <section id="clientsperform" className={`flex flex-col items-center justify-center ${styles.paddingY} ${theme === 'light' ? 'bg-background' : 'bg-light-background' }`}>
               <div className={`flex-1 flex justify-center items-center p-0`}>
                 <h1 className={`font-inter font-normal text-[44px] text-center ${theme === 'light' ? 'text-text' : 'text-light-text'}`}>See how our clients perform.</h1>
               </div>
+              <br></br>
+                  <br></br>
+              <div className={`${styles.flexStart} mr-20`} >
+                  <p2 className={`font-inter font-normal text-[16px] text-center`}>Imperdiet sed euismod nisi porta. Feugiat pretium nibh ipsum consequat nisl.
+                  <br></br>
+                  <br></br>
+                  Vel quam elementum pulvinar etiam non. Dignissim convallis aenean et tortor at risus viverra adipiscing at.
+                  <br></br>
+                  <br></br>
+                  Amet risus nullam eget felis eget nunc lobortis. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui.
+                  <br></br>
+                  <br></br>
+                  Vestibulum morbi blandit cursus risus at. Donec ultrices tincidunt arcu non sodales.
+                  </p2>
+                </div>
             </section>
           </div>
         </div>
